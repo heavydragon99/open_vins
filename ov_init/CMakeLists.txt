@@ -1,4 +1,11 @@
-cmake_minimum_required(VERSION 3.28)
+if($ENV{ROS_DISTRO} STREQUAL "humble")
+  cmake_minimum_required(VERSION 3.22)
+  add_definitions(-DROS2_HUMBLE)
+elseif($ENV{ROS_DISTRO} STREQUAL "jazzy")
+  cmake_minimum_required(VERSION 3.28)
+  add_definitions(-DROS2_JAZZY)
+endif()
+
 project(ov_init)
 
 
